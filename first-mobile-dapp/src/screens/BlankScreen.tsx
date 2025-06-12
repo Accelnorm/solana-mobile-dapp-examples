@@ -12,7 +12,8 @@ export default function BlankScreen() {
 
 const styles = StyleSheet.create({
   screenContainer: {
-    height: "100%",
+    flex: 1,
     padding: 16,
+    backgroundColor: '#904e95', // Dark purple background
   },
 });

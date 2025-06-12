@@ -1,6 +1,6 @@
-import { transact } from "@solana-mobile/mobile-wallet-adapter-protocol";
 import { useState, useCallback } from "react";
 import { Button } from "react-native-paper";
+import { StyleSheet } from "react-native";
 import { alertAndLog } from "../../utils/alertAndLog";
 import { useAuthorization } from "../../utils/useAuthorization";
 import { useMobileWallet } from "../../utils/useMobileWallet";
@@ -30,7 +30,9 @@ export function ConnectButton() {
       mode="contained"
       disabled={authorizationInProgress}
       onPress={handleConnectPress}
-      style={{ flex: 1 }}
+      style={styles.connectButton}
+      contentStyle={styles.buttonContent}
+      labelStyle={styles.buttonLabel}
     >
       Connect
     </Button>
@@ -66,9 +68,42 @@ export function SignInButton() {
       mode="outlined"
       disabled={signInInProgress}
       onPress={handleConnectPress}
-      style={{ marginLeft: 4, flex: 1 }}
+      style={styles.signInButton}
+      contentStyle={styles.buttonContent}
+      labelStyle={styles.buttonLabel}
     >
       Sign in
     </Button>
   );
 }
+
+const styles = StyleSheet.create({
+  connectButton: {
+    flex: 1,
+    backgroundColor: '#6E56CF',
+    borderRadius: 12,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  signInButton: {
+    flex: 1,
+    marginLeft: 4,
+    borderColor: '#FFFFFF',
+    borderWidth: 2,
+    borderRadius: 12,
+    backgroundColor: 'transparent',
+  },
+  buttonContent: {
+    height: 48,
+    paddingHorizontal: 16,
+  },
+  buttonLabel: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#FFFFFF',
+    letterSpacing: 0.5,
+  }
+});

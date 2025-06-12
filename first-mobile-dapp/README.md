@@ -2,6 +2,21 @@
 
 This is a ready-to-go react native expo mobile app example for building Solana mobile dApps.
 
+# Demo
+<table>
+  <tr>
+    <td align="center">
+      <img src="./screenshots/screenshot1.png" alt="Screenshot 1" width=300 />
+    </td>
+    <td align="center">
+      <img src="./screenshots/screenshot2.png" alt="Screenshot 2" width=300 />
+    </td>
+    <td align="center">
+      <img src="./screenshots/screenshot3.png" alt="Screenshot 3" width=300 />
+    </td>
+  </tr>
+</table>
+
 # Support
 1. Stuck while building Solana Mobile dApp using this example? - Don't worry, I have created a dedicated support channel in dPU Official Discord server, join to meet other Solana Mobile Developers, ask for support and support others. [dPU Solana Mobile Devs Support Channel](https://dProgrammingUniversity.com/discord).
 
@@ -42,7 +57,7 @@ yarn install
 ```sh
 eas build --profile development --platform android --local
 ```
-NOTE: This could take between `10minutes` to `30minutes`. So, be patient and don't interupt it even if displayng some error messages along the way until its done. Mine took `[RUN_GRADLEW] BUILD SUCCESSFUL in 21m 6s` to completely build the `apk` successfully.
+NOTE: This could take between `5minutes` to `30minutes`. So, be patient and don't interupt it even if displayng some error messages along the way until its done. Mine took `[RUN_GRADLEW] BUILD SUCCESSFUL in 5m 52s` to completely build the `apk` successfully.
 
 4. Install the `apk` into your Android Emulator or Physical Android device
 ```sh
