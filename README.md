@@ -10,6 +10,8 @@ Its time to ride on the mobile wave on SOLANA!
 
 3. DONATE: - To help keep this project going, adding new examples codes and updating existing ones. Kindly consider [DONATING](https://dprogrammingUniversity.com/donation) and donation of $50USDC and above we have you added to the donor list on this repo homepage - THANK YOU!
 
+4. If find this repo helful PLEASE remember to give it a STAR ⭐️ and share to other devs on social media.
+
 # Donors
 This space is to showcase donors as an APPRECIATION for supporting to keep this project going and helping Solana Mobile Developers access up-to-date examples.
 
