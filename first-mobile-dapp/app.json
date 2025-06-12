@@ -1,36 +1,48 @@
 {
   "expo": {
-    "name": "solana-mobile-react-native-expo-dapp-template",
-    "slug": "solana-mobile-react-native-expo-dapp-template",
+    "name": "first-mobile-dapp",
+    "slug": "first-mobile-dapp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/icon.png",
+    "scheme": "firstmobiledapp",
     "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.solanamobile.reactnativeexpo.dapp.template"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.solanamobile.reactnativeexpo.dapp.template"
+      "edgeToEdgeEnabled": true,
+      "package": "com.foskaay.firstmobiledapp"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
     },
     "extra": {
+      "router": {},
       "eas": {
-        "projectId": "e0e5e300-d7eb-48f9-a33a-c4fa1d3dd3db"
+        "projectId": "aa8f5055-3808-46eb-ab70-04eed54f2fb3"
       }
     }
   }
