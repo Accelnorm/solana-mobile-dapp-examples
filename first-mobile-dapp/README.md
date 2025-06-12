@@ -24,6 +24,8 @@ This is a ready-to-go react native expo mobile app example for building Solana m
 
 3. DONATE: - To help keep this project going, adding new examples codes and updating existing ones. Kindly consider [DONATING](https://dprogrammingUniversity.com/donation) and donation of $50USDC and above will have you added to the donors list on this [Solana Mobile dApp Examples Repo Homepage](https://github.com/dProgrammingUniversity/solana-mobile-dapp-examples) - THANK YOU!
 
+4. If find this repo helful PLEASE remember to give it a STAR ⭐️ and share to other devs on social media.
+
 
 # Guide
 
