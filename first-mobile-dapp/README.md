@@ -81,10 +81,10 @@ npx expo start --dev-client
 
 
 # FAQs
-1. Error: ```File 'expo/tsconfig.base' not found.ts
-Path to base configuration file to inherit from (requires TypeScript version 2.1 or later), or array of base files, with the rightmost files having the greater priority (requires TypeScript version 5.0 or later).``` or `--jsx not found` in the components and other files.
+1. ERROR: ```File 'expo/tsconfig.base' not found.ts
+Path to base configuration file to inherit from (requires TypeScript version 2.1 or later), or array of base files, with the rightmost files having the greater priority (requires TypeScript version 5.0 or later).``` OR it may include error message `Cannot use JSX unless the '--jsx' flag is provided.ts(17004)` in the components and other files.
 
-Fix: Go to `tsconfig.json`, hover mouse on the error `"expo/tsconfig.base"` and click `Follow link`. it will open into the types file `tsconfig.base.json`. Thats the correct file, so add `.json` to correctly link it like so: `expo/tsconfig.base.json`. Save the `tsconfig.json` file and the errors should be fixed across your app.
+- FIX: Go to `tsconfig.json`, hover mouse on the error `"expo/tsconfig.base"` and click `Follow link`. it will open into the types file `tsconfig.base.json`. Thats the correct file, so add `.json` to correctly link it like so: `expo/tsconfig.base.json`. Save the `tsconfig.json` file and the errors should be fixed across your app.
 
 # Solana Mobile Expo Template
 This is built off of version 2.2.1 of the [official Solana Mobile Expo Template](https://github.com/solana-mobile/solana-mobile-expo-template) 
