@@ -1,8 +1,8 @@
-# Solana Mobile Anchor Counter dApp
+# Solana Mobile Onchain Counter dApp
 
 This Solana mobile dApp example is for learning how to integrate Solana Anchor Programs into a Mobile App powered by React Native Expo.
 
-You will learn to build a counter program in Rust and deploy on Solana devnet. Then create a screen to interact with the Solana counter program in a react native expo app.
+You will learn to build an onchain counter program in Rust and deploy on Solana devnet. Then create a screen to interact with the Solana onchain counter program in a react native expo app.
 
 # Demo
 <table>
@@ -68,9 +68,9 @@ NOTE: If you are totally new to Solana mobile development, this might not be the
 
 
 ## D. Steps
-1. Ensure you are in the right folder `counter-dapp` in your terminal.
+1. Ensure you are in the right folder `onchain-counter-dapp` in your terminal.
 ```sh
-cd counter-dapp
+cd onchain-counter-dapp
 ```
 
 2. Install dependencies. Though am a fan of `PNPM`, it is known to have issues with React Native Expo sometimes. So, I switched to `yarn` when building with react native expo.

@@ -4,8 +4,8 @@ import { PublicKey } from "@solana/web3.js";
 import { useMemo } from "react";
 import * as anchor from "@coral-xyz/anchor";
 
-import { BasicCounter as BasicCounterProgram } from "../../../src/components/counter/types/basic_counter";
-import idl from "../../../src/components/counter/idl/basic_counter.json";
+import { BasicCounter as BasicCounterProgram } from "./types/basic_counter";
+import idl from "./idl/basic_counter.json";
 import { useConnection } from "../../utils/ConnectionProvider";
 import { useAnchorWallet } from "../../utils/useAnchorWallet";
 import { useMutation, useQuery } from "@tanstack/react-query";

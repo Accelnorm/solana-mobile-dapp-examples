@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "counter-dapp",
-    "slug": "counter-dapp",
+    "name": "onchain-counter-dapp",
+    "slug": "onchain-counter-dapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,21 +16,21 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.dpu.counterdapp"
+      "bundleIdentifier": "com.dpu.onchaincounterdapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.dpu.counterdapp"
+      "package": "com.dpu.onchaincounterdapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "80613cb0-84ec-4cae-8ba8-d7eadb191a0b"
+        "projectId": ""
       }
     }
   }
