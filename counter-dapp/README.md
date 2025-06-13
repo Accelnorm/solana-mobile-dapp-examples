@@ -93,7 +93,7 @@ To do so, drag and drop the `apk` file into your Android emulator
 adb devices
 ```
 
-Then install with command below. Kindly remember to change the apk name `build-1749804139031` to match your generated apk precisely to avoid errors. Also ensure this command is run within the project folder where the apk was generated and saved.
+Then install with command below. Kindly remember to change the apk name `build-1749804139031` to match your generated apk precisely to avoid errors. Also ensure this command is run within the project folder where the apk was generated and saved (For errors, check FAQs section below for fixes).
 ```sh
 adb install build-1749804139031.apk
 ```
@@ -131,4 +131,7 @@ Path to base configuration file to inherit from (requires TypeScript version 2.1
 3. ERROR: When run `adb install build-1749804139031.apk` and it returns error message `adb: more than one device/emulator`.
 - FIX: This is caused due to having multiple devices connected at same time and `adb` is confused which you want to install the apk into precisely. To Solve this, identify the ID of the device and use `-s` flag to point it there. 
 
-- An example is `adb -s 02602536G0081003 install build-1749804139031.apk` or `adb -s emulator-5554 install build-1749804139031.apk` where `02602536G0081003` represents id of real Android device and `emulator-5554` represents id of opened Emulator. Using the `-s id-of-device` help remove confusion and guide `adb` to install the `apk` in the right device you want. After successfully installed into the targeted device, you will get message like `Performing Streamed Install. Success`.
+- An example is `adb -s 02602536G0081003 install build-1749804139031.apk` or `adb -s emulator-5554 install build-1749804139031.apk` where `02602536G0081003` represents id of real Android device and `emulator-5554` represents id of opened Emulator. 
+Using the `-s id-of-device` help remove confusion and guide `adb` to install the `apk` in the right device you want. After successfully installed into the targeted device, you will get message like `Performing Streamed Install. Success`.
+
+- If you need to reinstall over an existing installation, add the `-r` flag: `adb -s 02602536G0081003 install -r build-1749804139031.apk` or `adb -s emulator-5554 install -r build-1749804139031.apk`.
