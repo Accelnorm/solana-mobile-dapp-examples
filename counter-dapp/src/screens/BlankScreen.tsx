@@ -4,7 +4,7 @@ export default function BlankScreen() {
   return (
     <>
       <View style={styles.screenContainer}>
-        <Text variant="titleLarge">2. - This is a blank tab!</Text>
+        <Text variant="titleLarge">This is a blank tab! Dev do something with it!</Text>
       </View>
     </>
   );
@@ -12,7 +12,8 @@ export default function BlankScreen() {
 
 const styles = StyleSheet.create({
   screenContainer: {
-    height: "100%",
+    flex: 1,
     padding: 16,
+    backgroundColor: '#904e95', // Dark purple background
   },
 });
