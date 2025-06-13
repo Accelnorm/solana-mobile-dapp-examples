@@ -4,7 +4,7 @@ export default function BlankScreen() {
   return (
     <>
       <View style={styles.screenContainer}>
-        <Text variant="titleLarge">This is a blank tab!</Text>
+        <Text variant="titleLarge">This is a blank tab! Dev do something with it!</Text>
       </View>
     </>
   );
