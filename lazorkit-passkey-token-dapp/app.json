@@ -30,10 +30,8 @@
     },
     "extra": {
       "eas": {
-        "projectId": ""
+        "projectId": "b77028c7-11b5-4b5c-b5f1-571512996051"
       }
-    },
-    "scheme": "lazorkitpasskeytokendapp",
-    "plugins": []
+    }
   }
 }
