@@ -3,8 +3,6 @@ import "./src/polyfills";
 
 import { StyleSheet, useColorScheme } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-import { ConnectionProvider } from "./src/utils/ConnectionProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   DarkTheme as NavigationDarkTheme,
@@ -17,7 +15,6 @@ import {
   adaptNavigationTheme,
 } from "react-native-paper";
 import { AppNavigator } from "./src/navigators/AppNavigator";
-import { ClusterProvider } from "./src/components/cluster/cluster-data-access";
 
 const queryClient = new QueryClient();
 
@@ -45,9 +42,7 @@ export default function App() {
     },
   };
   return (
-    <QueryClientProvider client={queryClient}>
-      <ClusterProvider>
-        <ConnectionProvider config={{ commitment: "processed" }}>
+    // <QueryClientProvider client={queryClient}>
           <SafeAreaView
             style={[
               styles.shell,
@@ -69,9 +64,7 @@ export default function App() {
               <AppNavigator />
             </PaperProvider>
           </SafeAreaView>
-        </ConnectionProvider>
-      </ClusterProvider>
-    </QueryClientProvider>
+    // </QueryClientProvider>
   );
 }
 

@@ -1,12 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import React from "react";
-import { TopBar } from "../components/top-bar/top-bar-feature";
-import { HomeScreen } from "../screens/HomeScreen";
 import MaterialCommunityIcon from "@expo/vector-icons/MaterialCommunityIcons";
 import { useTheme } from "react-native-paper";
-import BlankScreen from "../screens/BlankScreen";
-import CounterScreen from "../screens/CounterScreen";
-import TokenTransferScreen from "../screens/TokenTransferScreen";
+import { TokenTransferScreen, BlankScreen } from "../screens";
 
 const Tab = createBottomTabNavigator();
 
@@ -21,33 +16,15 @@ export function HomeNavigator() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        header: () => <TopBar />,
+        headerShown: false,
+        tabBarActiveTintColor: theme.colors.primary,
+        tabBarInactiveTintColor: theme.colors.onSurfaceVariant,
         tabBarIcon: ({ focused, color, size }) => {
           switch (route.name) {
-            case "Home":
-              return (
-                <MaterialCommunityIcon
-                  name={focused ? "home" : "home-outline"}
-                  size={size}
-                  color={color}
-                />
-              );
-            case "Counter":
-              return (
-                <MaterialCommunityIcon
-                  name={
-                    focused ? "timer-outline" : "timer-outline"
-                  }
-                  size={size}
-                  color={color}
-                />
-              );
             case "Transfer":
               return (
                 <MaterialCommunityIcon
-                  name={
-                    focused ? "hand-coin" : "hand-coin-outline"
-                  }
+                  name={focused ? "hand-coin" : "hand-coin-outline"}
                   size={size}
                   color={color}
                 />
@@ -55,9 +32,7 @@ export function HomeNavigator() {
             case "Blank":
               return (
                 <MaterialCommunityIcon
-                  name={
-                    focused ? "application-edit" : "application-edit-outline"
-                  }
+                  name={focused ? "application-edit" : "application-edit-outline"}
                   size={size}
                   color={color}
                 />
@@ -66,8 +41,6 @@ export function HomeNavigator() {
         },
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Counter" component={CounterScreen} />
       <Tab.Screen name="Transfer" component={TokenTransferScreen} />
       <Tab.Screen name="Blank" component={BlankScreen} />
     </Tab.Navigator>
