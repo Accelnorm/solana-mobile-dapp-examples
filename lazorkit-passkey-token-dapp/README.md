@@ -1,33 +1,32 @@
-# Solana Mobile Onchain Counter dApp
+# Solana Mobile Lazorkit Passkey Token Transfer dApp
 
-This Solana mobile dApp example is for learning how to integrate Solana Anchor Programs into a Mobile App powered by React Native Expo.
+This Solana mobile dApp example is for learning how to integrate Solana token transfer using Passkey (biometrics) without using normal Solana wallets into a Mobile App powered by Lazorkit Mobile Wallet SDK and React Native Expo.
 
-You will learn to build an onchain counter program in Rust and deploy on Solana devnet. Then create a screen to interact with the Solana onchain counter program in a react native expo app.
 
 # Demo
 <table>
   <tr>
     <td align="center">
-      <img src="./images/v2/screenshot1.png" alt="Screenshot 1" width=300 />
+      <img src="./images/v1/screenshot1.jpg" alt="Screenshot 1" width=300 />
     </td>
     <td align="center">
-      <img src="./images/v2/screenshot2.png" alt="Screenshot 2" width=300 />
+      <img src="./images/v1/screenshot2.jpg" alt="Screenshot 2" width=300 />
     </td>
     <td align="center">
-      <img src="./images/v2/screenshot3.png" alt="Screenshot 3" width=300 />
+      <img src="./images/v1/screenshot3.jpg" alt="Screenshot 3" width=300 />
     </td>
   </tr>
 </table>
 <table>
   <tr>
     <td align="center">
-      <img src="./images/v2/screenshot4.png" alt="Screenshot 1" width=300 />
+      <img src="./images/v1/screenshot4.jpg" alt="Screenshot 1" width=300 />
     </td>
     <td align="center">
-      <img src="./images/v2/screenshot5.png" alt="Screenshot 2" width=300 />
+      <img src="./images/v1/screenshot5.jpg" alt="Screenshot 2" width=300 />
     </td>
     <td align="center">
-      <img src="./images/v2/screenshot6.png" alt="Screenshot 3" width=300 />
+      <img src="./images/v1/screenshot6.jpg" alt="Screenshot 3" width=300 />
     </td>
   </tr>
 </table>
@@ -46,9 +45,7 @@ You will learn to build an onchain counter program in Rust and deploy on Solana 
 # Guide
 
 ## A. Video
-To learn how this was built step by step. Kindly watch the course here:
 
-[Solana Mobile Development Course 002 | Build Anchor Counter Mobile dApp With React Native Expo](https://www.youtube.com/watch?v=QZ0tMBqGlkE)
 
 NOTE: If you are totally new to Solana mobile development, this might not be the example to start with. You want to [learn to build your first Solana mobile dApp with this example](https://github.com/dProgrammingUniversity/solana-mobile-dapp-examples/tree/main/first-mobile-dapp) first and come back to this after.
 
@@ -56,21 +53,19 @@ NOTE: If you are totally new to Solana mobile development, this might not be the
 - [Solana mobile development enviroment setup](https://docs.solanamobile.com/developers/development-setup)
 - React Native Expo knowledge - (Watch above course video to learn the basics even if never built mobile apps before)
 - Emulator/Physical Android device - for testing your Solana Mobile dApp (Solana phones like Seeker are Android based, so you should be fine testing your app on Android emulator or real Android phones)
-- MWA compatible wallets (Solflare, Phantom etc.)
+
 
 ## C. Techstack
-- Rust
-- Anchor
+- [Lazorkit Mobile Wallet SDK](https://www.npmjs.com/package/@lazorkit/wallet-mobile-adapter)
 - React Native
 - Expo
-- Android Emulator
-- Solana Mobile Wallet Adapter (MWA)
+- Mobile Phone wth Biometrics (I only tested on Android but should work with iOS)
 
 
 ## D. Steps
-1. Ensure you are in the right folder `onchain-counter-dapp` in your terminal.
+1. Ensure you are in the right folder `lazorkit-passkey-token-dapp` in your terminal.
 ```sh
-cd onchain-counter-dapp
+cd lazorkit-passkey-token-dapp
 ```
 
 2. Install dependencies. Though am a fan of `PNPM`, it is known to have issues with React Native Expo sometimes. So, I switched to `yarn` when building with react native expo.
