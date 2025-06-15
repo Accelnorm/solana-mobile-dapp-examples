@@ -3,7 +3,6 @@ import "./src/polyfills";
 
 import { StyleSheet, useColorScheme } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
@@ -15,8 +14,7 @@ import {
   adaptNavigationTheme,
 } from "react-native-paper";
 import { AppNavigator } from "./src/navigators/AppNavigator";
-
-const queryClient = new QueryClient();
+import { LazorKitProvider } from "./src/utils/lazorkit/LazorKitProvider";
 
 export default function App() {
   const colorScheme = useColorScheme();
@@ -42,29 +40,25 @@ export default function App() {
     },
   };
   return (
-    // <QueryClientProvider client={queryClient}>
-          <SafeAreaView
-            style={[
-              styles.shell,
-              {
-                backgroundColor:
-                  colorScheme === "dark"
-                    ? MD3DarkTheme.colors.background
-                    : MD3LightTheme.colors.background,
-              },
-            ]}
-          >
-            <PaperProvider
-              theme={
-                colorScheme === "dark"
-                  ? CombinedDarkTheme
-                  : CombinedDefaultTheme
-              }
-            >
-              <AppNavigator />
-            </PaperProvider>
-          </SafeAreaView>
-    // </QueryClientProvider>
+    <SafeAreaView
+      style={[
+        styles.shell,
+        {
+          backgroundColor:
+            colorScheme === "dark"
+              ? MD3DarkTheme.colors.background
+              : MD3LightTheme.colors.background,
+        },
+      ]}
+    >
+      <PaperProvider
+        theme={colorScheme === "dark" ? CombinedDarkTheme : CombinedDefaultTheme}
+      >
+        <LazorKitProvider>
+          <AppNavigator />
+        </LazorKitProvider>
+      </PaperProvider>
+    </SafeAreaView>
   );
 }
 
