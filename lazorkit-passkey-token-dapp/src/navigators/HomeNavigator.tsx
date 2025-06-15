@@ -5,8 +5,8 @@ import { HomeScreen } from "../screens/HomeScreen";
 import MaterialCommunityIcon from "@expo/vector-icons/MaterialCommunityIcons";
 import { useTheme } from "react-native-paper";
 import BlankScreen from "../screens/BlankScreen";
-import AccountScreen from "../screens/AccountScreen";
 import CounterScreen from "../screens/CounterScreen";
+import TokenTransferScreen from "../screens/TokenTransaferScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -42,7 +42,17 @@ export function HomeNavigator() {
                   color={color}
                 />
               );
-              case "Blank":
+            case "Transfer":
+              return (
+                <MaterialCommunityIcon
+                  name={
+                    focused ? "hand-coin" : "hand-coin-outline"
+                  }
+                  size={size}
+                  color={color}
+                />
+              );
+            case "Blank":
               return (
                 <MaterialCommunityIcon
                   name={
@@ -58,6 +68,7 @@ export function HomeNavigator() {
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Counter" component={CounterScreen} />
+      <Tab.Screen name="Transfer" component={TokenTransferScreen} />
       <Tab.Screen name="Blank" component={BlankScreen} />
     </Tab.Navigator>
   );
