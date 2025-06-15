@@ -6,7 +6,7 @@ import MaterialCommunityIcon from "@expo/vector-icons/MaterialCommunityIcons";
 import { useTheme } from "react-native-paper";
 import BlankScreen from "../screens/BlankScreen";
 import CounterScreen from "../screens/CounterScreen";
-import TokenTransferScreen from "../screens/TokenTransaferScreen";
+import TokenTransferScreen from "../screens/TokenTransferScreen";
 
 const Tab = createBottomTabNavigator();
 

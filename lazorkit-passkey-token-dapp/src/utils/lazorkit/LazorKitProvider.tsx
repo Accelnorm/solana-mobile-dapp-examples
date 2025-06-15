@@ -6,8 +6,6 @@ import { Connection } from '@solana/web3.js';
 const DEVNET_RPC_URL = 'https://api.devnet.solana.com';
 const IPFS_URL = 'https://portal.lazor.sh';
 const PAYMASTER_URL = 'https://lazorkit-paymaster.onrender.com';
-
-// Contant App URL to redirect after passkey authentication
 export const APP_REDIRECT_URL = 'lazorkitpasskeytokendapp://'; // Add this line
 
 // Create a connection context
