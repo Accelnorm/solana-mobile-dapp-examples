@@ -14,7 +14,6 @@ export function TokenTransferFeature() {
     disconnect, 
     smartWalletPubkey,
     balance,
-    fetchBalance 
   } = useLazorTransfer();
 
   const handleConnect = async () => {

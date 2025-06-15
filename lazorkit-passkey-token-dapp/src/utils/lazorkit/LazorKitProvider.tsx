@@ -6,11 +6,15 @@ import { Connection } from '@solana/web3.js';
 const DEVNET_RPC_URL = 'https://api.devnet.solana.com';
 const IPFS_URL = 'https://portal.lazor.sh';
 const PAYMASTER_URL = 'https://lazorkit-paymaster.onrender.com';
-export const APP_REDIRECT_URL = 'lazorkitpasskeytokendapp://'; // Add this line
+
+// App url constant: Define the redirect URL for the app
+export const APP_REDIRECT_URL = 'lazorkitpasskeytokendapp://';
 
 // Create a connection context
 export const LazorKitConnectionContext = React.createContext<Connection | null>(null);
 
+// LazorKitProvider component: 
+// Provides the LazorKit wallet and connection context
 export const LazorKitProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Create connection instance
   const connection = React.useMemo(
