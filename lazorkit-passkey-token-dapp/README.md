@@ -45,7 +45,7 @@ This Solana mobile dApp example is for learning how to integrate Solana token tr
 # Guide
 
 ## A. Video
-
+I did a demo video for how this mobile app allow using just fingerprint to authenticate transaction on Solana without normal wallet - [Solana Mobile dApp Examples 3a: Lazorkit Passkey Token dApp Demo](https://youtu.be/VrcnxZOhFH4)
 
 NOTE: If you are totally new to Solana mobile development, this might not be the example to start with. You want to [learn to build your first Solana mobile dApp with this example](https://github.com/dProgrammingUniversity/solana-mobile-dapp-examples/tree/main/first-mobile-dapp) first and come back to this after.
 
