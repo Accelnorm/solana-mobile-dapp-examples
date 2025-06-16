@@ -6,7 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.devnet]
-metaplex_core_asset_nft_minter = "3R9H5SimczMRZvZF24sRz1wR2EpXmkLCi4GBQCc8Gdyc"
+metaplex_core_asset_nft_minter = "AU7v6oJmoHWwHPNCAjSzjbCQpgvi8ZZ4vKGNZ33ScwJT"
 
 [registry]
 url = "https://api.devnet.solana.com"
