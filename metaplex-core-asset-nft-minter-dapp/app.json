@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "metaplex-core-asset-nft-minter-dapp",
-    "slug": "metaplex-core-asset-nft-minter-dapp",
+    "name": "metaplex-core-nft-dapp",
+    "slug": "metaplex-core-nft-dapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "scheme": "metaplexcoreassetnftminterdapp",
+    "scheme": "metaplexcorenftdapp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -18,21 +18,21 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.dpu.metaplexcoreassetnftminterdapp"
+      "bundleIdentifier": "com.dpu.metaplexcorenftdapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.dpu.metaplexcoreassetnftminterdapp"
+      "package": "com.dpu.metaplexcorenftdapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "2e1fa6ed-1674-4976-86df-34475beb4a79"
+        "projectId": "5bca5bbe-d7f5-40d4-9d97-a81751ff263c"
       }
     }
   }
