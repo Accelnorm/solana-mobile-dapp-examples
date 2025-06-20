@@ -183,7 +183,12 @@ const styles = StyleSheet.create({
   status: {
     textAlign: 'center',
     marginVertical: 8,
-    color: '#666',
+    color: '#FFEB3B', // Changed to yellow for better visibility on dark green background
+  },
+  txText: {
+    fontSize: 12,
+    marginBottom: 8,
+    color: '#333333', // Changed to dark gray for better visibility in white container
   },
   mintButton: {
     backgroundColor: '#4CAF50', // Green color for mint button
