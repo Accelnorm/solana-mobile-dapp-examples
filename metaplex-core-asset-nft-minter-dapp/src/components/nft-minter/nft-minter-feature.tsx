@@ -11,6 +11,7 @@ export function NFTMinterFeature() {
   const { selectedAccount } = useAuthorization();
   const { mintNFT } = useNFTMinter(); 
   const [txSignature, setTxSignature] = useState<string | null>(null);
+  const [txAssetId, setTxAssetId] = useState<string | null>(null);
 
   if (!selectedAccount) {
     return (
@@ -27,7 +28,9 @@ export function NFTMinterFeature() {
   const handleMint = async (name: string, uri: string) => {
     try {
       const result = await mintNFT.mutateAsync({ name, uri });
+      console.log('Mint successful:', result);
       setTxSignature(result.signature);
+      setTxAssetId(result.assetId);
       alert('NFT Minted Successfully!');
     } catch (error) {
       console.error('Mint failed:', error);
@@ -37,7 +40,7 @@ export function NFTMinterFeature() {
 
   const handleViewNFT = () => {
     if (txSignature) {
-      Linking.openURL(`https://solscan.io/tx/${txSignature}?cluster=devnet`);
+      Linking.openURL(`https://solscan.io/token/${txAssetId}?cluster=devnet`);
     }
   };
 
@@ -77,6 +80,7 @@ const styles = StyleSheet.create({
   txText: {
     fontSize: 12,
     marginBottom: 8,
+    color: '#333333', // Changed to dark gray for better visibility in white container
   },
   viewButton: {
     marginTop: 8,
