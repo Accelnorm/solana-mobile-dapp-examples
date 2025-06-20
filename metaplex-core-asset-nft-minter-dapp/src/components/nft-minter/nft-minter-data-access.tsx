@@ -9,8 +9,6 @@ import { alertAndLog } from "../../utils/alertAndLog";
 import { MetaplexCoreAssetNftMinter } from "./types/metaplex_core_asset_nft_minter";
 import idl from "./idl/metaplex_core_asset_nft_minter.json";
 
-const PROGRAM_ID = new PublicKey("AU7v6oJmoHWwHPNCAjSzjbCQpgvi8ZZ4vKGNZ33ScwJT");
-
 export function useNFTMinter() {
   const { connection } = useConnection();
   const anchorWallet = useAnchorWallet();

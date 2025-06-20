@@ -5,6 +5,7 @@ import { Text, Button } from 'react-native-paper';
 import { NFTMinterForm } from './nft-minter-ui';
 import { useNFTMinter } from './nft-minter-data-access';
 import { useAuthorization } from '../../utils/useAuthorization';
+import { ConnectButton } from '../sign-in/sign-in-ui';
 
 export function NFTMinterFeature() {
   const { selectedAccount } = useAuthorization();
@@ -15,6 +16,10 @@ export function NFTMinterFeature() {
     return (
       <View style={styles.container}>
         <Text variant="titleMedium">Please connect your wallet first</Text>
+        <ConnectButton />
+        <Text variant="bodyMedium" style={{ marginTop: 16 }}>
+          To mint an NFT, you need to be connected to a Solana wallet.
+        </Text>
       </View>
     );
   }

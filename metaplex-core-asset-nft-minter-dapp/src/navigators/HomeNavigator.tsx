@@ -5,7 +5,6 @@ import { HomeScreen } from "../screens/HomeScreen";
 import MaterialCommunityIcon from "@expo/vector-icons/MaterialCommunityIcons";
 import { useTheme } from "react-native-paper";
 import BlankScreen from "../screens/BlankScreen";
-import CounterScreen from "../screens/CounterScreen";
 import MCANFTMinterScreen from "../screens/MCANFTMinterScreen";
 
 const Tab = createBottomTabNavigator();
@@ -28,16 +27,6 @@ export function HomeNavigator() {
               return (
                 <MaterialCommunityIcon
                   name={focused ? "home" : "home-outline"}
-                  size={size}
-                  color={color}
-                />
-              );
-            case "Counter":
-              return (
-                <MaterialCommunityIcon
-                  name={
-                    focused ? "timer-outline" : "timer-outline"
-                  }
                   size={size}
                   color={color}
                 />
@@ -67,7 +56,6 @@ export function HomeNavigator() {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Counter" component={CounterScreen} />
       <Tab.Screen name="MintNFT" component={MCANFTMinterScreen} />
       <Tab.Screen name="Blank" component={BlankScreen} />
     </Tab.Navigator>

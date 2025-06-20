@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#904e95', // Dark purple background
+    backgroundColor: '#31473A', // Dark green background
   },
   title: {
     fontWeight: "bold",
