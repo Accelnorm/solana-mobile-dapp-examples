@@ -1,33 +1,33 @@
 # Solana Mobile Metaplex Core Asset NFT Minter dApp
 
-This Solana mobile dApp example demonstrates how to integrate Metaplex Core's NFT standard into a React Native Expo application using the Solana Mobile Stack. 
+This Solana mobile dApp example demonstrates how to mint NFT on Solana using Metaplex Core NFT standard and the Solana Mobile Stack. 
 
-Developers will learn to create a production-ready NFT minter that works natively on mobile devices, leveraging Anchor programs, Solana's Mobile Wallet Adapter, and decentralized storage.
+Developers will learn to create a Solana NFT minter dApp that works natively on mobile devices, leveraging Anchor programs, Solana Mobile Wallet Adapter, React Native Expo and decentralized storage (IPFS via Pinata).
 
 # Demo
 <table>
   <tr>
     <td align="center">
-      <img src="./images/v2/screenshot1.png" alt="Screenshot 1" width=300 />
+      <img src="./images/v1/screenshot1.jpg" alt="Screenshot 1" width=300 />
     </td>
     <td align="center">
-      <img src="./images/v2/screenshot2.png" alt="Screenshot 2" width=300 />
+      <img src="./images/v1/screenshot2.jpg" alt="Screenshot 2" width=300 />
     </td>
     <td align="center">
-      <img src="./images/v2/screenshot3.png" alt="Screenshot 3" width=300 />
+      <img src="./images/v1/screenshot3.jpg" alt="Screenshot 3" width=300 />
     </td>
   </tr>
 </table>
 <table>
   <tr>
     <td align="center">
-      <img src="./images/v2/screenshot4.png" alt="Screenshot 1" width=300 />
+      <img src="./images/v1/screenshot4.jpg" alt="Screenshot 1" width=300 />
     </td>
     <td align="center">
-      <img src="./images/v2/screenshot5.png" alt="Screenshot 2" width=300 />
+      <img src="./images/v1/screenshot5.jpg" alt="Screenshot 2" width=300 />
     </td>
     <td align="center">
-      <img src="./images/v2/screenshot6.png" alt="Screenshot 3" width=300 />
+      <img src="./images/v1/screenshot6.jpg" alt="Screenshot 3" width=300 />
     </td>
   </tr>
 </table>
@@ -46,7 +46,7 @@ Developers will learn to create a production-ready NFT minter that works nativel
 # Guide
 
 ## A. Video
-I did a demo video for how this mobile app allow using just fingerprint to authenticate transaction on Solana without normal wallet - [Solana Mobile dApp Examples 3a: Lazorkit Passkey Token dApp Demo](https://youtu.be/VrcnxZOhFH4)
+I did a demo video for how this mobile app allow user to upload image from their mobile phone and mint it as NFT on Solana - [Solana Mobile dApp Examples 4a: Metaplex Core Asset NFT Minter dApp Demo](https://youtube.com/shorts/lZ-8Rm7ianM)
 
 NOTE: If you are totally new to Solana mobile development, this might not be the example to start with. You want to [learn to build your first Solana mobile dApp with this example](https://github.com/dProgrammingUniversity/solana-mobile-dapp-examples/tree/main/first-mobile-dapp) first and come back to this after.
 
@@ -81,7 +81,7 @@ CreateV2CpiBuilder::new(...)
 - Android Emulator
 - Solana Mobile Wallet Adapter (MWA)
 
-## SIDE NOTE:
+## Pre-Steps:
 Before proceeding, you need a way to upload the NFT `image` and `metadata` to a decentralized storage `IPFS`. And we are using `Pinata` to achieve this.
 
 Follow steps below to set it up:
