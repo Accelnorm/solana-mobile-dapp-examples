@@ -1,0 +1,90 @@
+{
+  "address": "AU7v6oJmoHWwHPNCAjSzjbCQpgvi8ZZ4vKGNZ33ScwJT",
+  "metadata": {
+    "name": "metaplex_core_asset_nft_minter",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "create_core_asset",
+      "discriminator": [
+        11,
+        133,
+        33,
+        184,
+        158,
+        20,
+        227,
+        195
+      ],
+      "accounts": [
+        {
+          "name": "asset",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "collection",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "authority",
+          "signer": true,
+          "optional": true
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "owner",
+          "optional": true
+        },
+        {
+          "name": "update_authority",
+          "optional": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "mpl_core_program",
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "CreateAssetArgs"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "CreateAssetArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "uri",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}
