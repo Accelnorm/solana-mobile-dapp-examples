@@ -1,8 +1,8 @@
-# Solana Mobile Onchain Counter dApp
+# Solana Mobile Metaplex Core Asset NFT Minter dApp
 
-This Solana mobile dApp example is for learning how to integrate Solana Anchor Programs into a Mobile App powered by React Native Expo.
+This Solana mobile dApp example demonstrates how to integrate Metaplex Core's NFT standard into a React Native Expo application using the Solana Mobile Stack. 
 
-You will learn to build an onchain counter program in Rust and deploy on Solana devnet. Then create a screen to interact with the Solana onchain counter program in a react native expo app.
+Developers will learn to create a production-ready NFT minter that works natively on mobile devices, leveraging Anchor programs, Solana's Mobile Wallet Adapter, and decentralized storage.
 
 # Demo
 <table>
@@ -46,9 +46,7 @@ You will learn to build an onchain counter program in Rust and deploy on Solana 
 # Guide
 
 ## A. Video
-To learn how this was built step by step. Kindly watch the course here:
-
-[Solana Mobile Development Course 002 | Build Anchor Counter Mobile dApp With React Native Expo](https://www.youtube.com/watch?v=QZ0tMBqGlkE)
+I did a demo video for how this mobile app allow using just fingerprint to authenticate transaction on Solana without normal wallet - [Solana Mobile dApp Examples 3a: Lazorkit Passkey Token dApp Demo](https://youtu.be/VrcnxZOhFH4)
 
 NOTE: If you are totally new to Solana mobile development, this might not be the example to start with. You want to [learn to build your first Solana mobile dApp with this example](https://github.com/dProgrammingUniversity/solana-mobile-dapp-examples/tree/main/first-mobile-dapp) first and come back to this after.
 
@@ -58,7 +56,24 @@ NOTE: If you are totally new to Solana mobile development, this might not be the
 - Emulator/Physical Android device - for testing your Solana Mobile dApp (Solana phones like Seeker are Android based, so you should be fine testing your app on Android emulator or real Android phones)
 - MWA compatible wallets (Solflare, Phantom etc.)
 
-## C. Techstack
+## C. Mobile dApp Workflow
+1. 📸 User selects image from mobile phone gallery
+
+2. ☁️ Image + metadata uploaded to IPFS (Pinata)
+
+3. 🛠️ Anchor program mints NFT on Solana devnet using Metaplex Core NFT standard:
+```sh
+CreateV2CpiBuilder::new(...)
+  .name(name)
+  .uri(metadata_uri)
+  .plugins(vec![Plugin::FreezeDelegate(...)])
+  .invoke()
+  ```
+4. 🔍 View minted NFT on Solscan explorer  
+
+## D. Techstack
+- Metaplex Core (NFT Standard)
+- IPFS (via Pinata)
 - Rust
 - Anchor
 - React Native
@@ -66,12 +81,22 @@ NOTE: If you are totally new to Solana mobile development, this might not be the
 - Android Emulator
 - Solana Mobile Wallet Adapter (MWA)
 
+## SIDE NOTE:
+Before proceeding, you need a way to upload the NFT `image` and `metadata` to a decentralized storage `IPFS`. And we are using `Pinata` to achieve this.
 
-## D. Steps
-1. Ensure you are in the right folder `onchain-counter-dapp` in your terminal.
+Follow steps below to set it up:
+1. Setup an account with [Pinata](https://pinata.cloud/)
+2. Start with the FREE plan for testing and can upgrade later if your usage goes beyond the free limit
+3. Get your Pinata `API Key` and `API Secret Key` 
+4. Create a new file `.env` and copy the content in the example `.env.example` into it.
+5. Replace the `your_pinata_api_key_here` with your Pinata `API Key` and `your_pinata_api_secret_here` with your Pinanta `API Secret Key` without space like `api_key=12345`.
+
+## E. Steps
+1. Ensure you are in the right folder `metaplex-core-asset-nft-minter-dapp` in your terminal.
 ```sh
-cd onchain-counter-dapp
+cd metaplex-core-asset-nft-minter-dapp
 ```
+
 
 2. Install dependencies. Though am a fan of `PNPM`, it is known to have issues with React Native Expo sometimes. So, I switched to `yarn` when building with react native expo.
 ```sh
@@ -120,18 +145,4 @@ npx expo start --dev-client
 
 
 # FAQs
-1. ERROR: ```File 'expo/tsconfig.base' not found.ts
-Path to base configuration file to inherit from (requires TypeScript version 2.1 or later), or array of base files, with the rightmost files having the greater priority (requires TypeScript version 5.0 or later).``` OR it may include error message `Cannot use JSX unless the '--jsx' flag is provided.ts(17004)` in the components and other files.
-
-- FIX: Go to `tsconfig.json`, hover mouse on the error `"expo/tsconfig.base"` and click `Follow link`. it will open into the types file `tsconfig.base.json`. Thats the correct file, so add `.json` to correctly link it like so: `expo/tsconfig.base.json`. Save the `tsconfig.json` file and the errors should be fixed across your app.
-
-2. ERROR: ```CommandError: No development build (com.dpu.counterdapp) for this project is installed. Please make and install a development build on the device first.``` 
-- FIX: You need to build and install the apk first in the Emulator/Android device you want to test with before running the ```npx expo start``` command.
-
-3. ERROR: When run `adb install build-1749804139031.apk` and it returns error message `adb: more than one device/emulator`.
-- FIX: This is caused due to having multiple devices connected at same time and `adb` is confused which you want to install the apk into precisely. To Solve this, identify the ID of the device and use `-s` flag to point it there. 
-
-- An example is `adb -s 02602536G0081003 install build-1749804139031.apk` or `adb -s emulator-5554 install build-1749804139031.apk` where `02602536G0081003` represents id of real Android device and `emulator-5554` represents id of opened Emulator. 
-Using the `-s id-of-device` help remove confusion and guide `adb` to install the `apk` in the right device you want. After successfully installed into the targeted device, you will get message like `Performing Streamed Install. Success`.
-
-- If you need to reinstall over an existing installation, add the `-r` flag: `adb -s 02602536G0081003 install -r build-1749804139031.apk` or `adb -s emulator-5554 install -r build-1749804139031.apk`.
+See answers to [Solana Mobile Development FAQs HERE](https://github.com/dProgrammingUniversity/solana-mobile-dapp-examples/tree/main/FAQs)
