@@ -11,6 +11,19 @@ import { useAnchorWallet } from "../../utils/useAnchorWallet";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { alertAndLog } from "../../utils/alertAndLog";
 
+// Imports for migrating to gill
+import {
+  createTransaction,
+  transactionToBase64,
+  getExplorerLink,
+  address,
+  createNoopSigner,
+  blockhash,
+  compileTransaction,
+} from "gill";
+import { getIncrementInstruction } from "../../../clients/js/src/generated/instructions/increment";
+import { useMobileWalletWithKit } from "../../utils/useMobileWalletWithKit";
+
 // Match the exact Rust program account structure
 interface CounterAccount {
   count: number;  // Changed from anchor.BN to number to match Rust u64
@@ -177,28 +190,73 @@ export function useCounterProgram() {
     },
   });
 
-  // Increment counter mutation
+  // Add Kit wallet to the hook
+  const kitWallet = useMobileWalletWithKit();
+
+  // Increment counter mutation with Gill
+  // Limitation: the counter account polling logs stop appearing after you start the gill transaction
   const incrementCounter = useMutation({
     mutationKey: ["counter", "increment"],
     mutationFn: async (amount: number) => {
-      if (!counterProgram) {
-        throw Error("Counter program not instantiated");
+      if (!counterProgram || !anchorWallet) {
+        throw Error("Counter program not instantiated or wallet not connected");
       }
 
       console.log(`Incrementing counter by ${amount}`);
-      return await counterProgram.methods
-        .increment(new anchor.BN(amount))
-        .accounts({
-          counter: counterPDA,
-        })
-        .rpc();
+      
+      // Get latest blockhash for lifetime constraint
+      const { blockhash: recentBlockhash, lastValidBlockHeight } = await connection.getLatestBlockhash();
+      
+      // Create the increment instruction using Codama-generated function
+      const incrementInstruction = getIncrementInstruction({
+        counter: address(counterPDA.toBase58()),
+        amount: BigInt(amount),
+      });
+
+      // Create the compilable transaction message using Gill
+      const compilableTxMsg = createTransaction({
+        version: "legacy",
+        feePayer: createNoopSigner(address(anchorWallet.publicKey.toBase58())),
+        instructions: [incrementInstruction],
+        latestBlockhash: {
+          blockhash: blockhash(recentBlockhash),
+          lastValidBlockHeight: BigInt(lastValidBlockHeight),
+        },
+      });
+
+      // Compile the transaction message to prepare for base64 conversion
+      const txWithMessageBytes = compileTransaction(compilableTxMsg);
+
+      // Convert to base64 for mobile wallet adapter 
+      const base64Tx = transactionToBase64(txWithMessageBytes);
+
+      // Send using Kit-compatible mobile wallet adapter
+      const signatures = await kitWallet.signAndSendTransactionsMadeWithKit([base64Tx]);
+      
+      return signatures[0];
     },
+
+    // If the mutation function returned more than one signature,
+    // then the onSuccess callback would need to be typed as
+    // (signatures: string[], amount: number)
+    // and would need to handle the array appropriately. 
     onSuccess: async (signature: string, amount: number) => {
-        console.log("Increment success:", signature);
-        alertAndLog(`Counter Incremented By ${amount} Successfully!!!`, `Signature: ${signature}`);
-        //Refetch counter account
-        await counterAccount.refetch();
-      },
+      console.log("Increment success:", signature);
+      
+      // Create explorer link
+      const explorerLink = getExplorerLink({
+        cluster: "devnet",
+        transaction: signature,
+      });
+      
+      alertAndLog(
+        `Counter Incremented By ${amount} Successfully via GILL!!!`, 
+        `Signature: ${signature}\nExplorer: ${explorerLink}`
+      );
+      
+      // Refetch counter account
+      await counterAccount.refetch();
+    },
     onError: (error: Error) => {
       console.log("Increment error:", error);
       alertAndLog(error.name, error.message);
