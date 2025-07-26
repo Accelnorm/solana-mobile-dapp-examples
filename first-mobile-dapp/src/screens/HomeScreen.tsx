@@ -17,7 +17,7 @@ export function HomeScreen() {
           style={styles.title}
           variant="displaySmall"
         >
-          Solana Mobile dApp
+          Solana Mobile App
         </Text>
         {selectedAccount ? (
           <AccountDetailFeature />
